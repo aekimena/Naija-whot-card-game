@@ -1,0 +1,116 @@
+body {
+    background-color: green;
+    /* height: 100vh; */
+}
+
+.computer-cards {
+    display: flex;
+}
+
+.computer-card {
+    background-color: brown;
+    width: 150px;
+    height: 150px;
+    border: 1px solid #000;
+    position: relative;
+    cursor: none;
+}
+
+.computer-card-whot {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 1.4rem;
+}
+
+.display-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+}
+
+.display-card {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid brown;
+    width: 190px;
+    height: 190px;
+    cursor: none;
+}
+
+.display-card-number {
+    position: absolute;
+    top: 1px;
+    left: 2px;
+    color: brown;
+}
+
+.display-card-shape {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: brown;
+    font-size: 1.4rem;
+}
+
+.market-cards {
+    position: absolute;
+    top: 50%;
+    left: 85%;
+    transform: translate(-85%, -50%);
+}
+
+.market-card {
+    position: relative;
+    background-color: brown;
+    border: 1px solid #000;
+    width: 160px;
+    height: 160px;
+    cursor: pointer;
+}
+
+.market-card-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 1.4rem;
+}
+
+.player-cards {
+    bottom: 0;
+    display: flex;
+}
+
+.player-card {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid brown;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+}
+
+.player-card-number {
+    position: absolute;
+    top: 1px;
+    left: 2px;
+    color: brown;
+}
+
+.player-card-shape {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: brown;
+    font-size: 1.4rem;
+}
