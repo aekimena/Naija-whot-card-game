@@ -4,41 +4,54 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Naija Whot</title>
+    <title>Document</title>
     <link
       rel="stylesheet"
       href="bootstrap-5.3.0-alpha3-dist/css/bootstrap.css"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style3.css" />
   </head>
   <body>
-    <div class="container-fluid">
-      <div class="computer-cards mt-5 mx-3">
-        <div class="computer-card mx-2">
+    <div class="computer-cards-slide-container">
+      <div class="computer-cards">
+        <div class="length-display-card hide mx-2">
+          <p class="length-display-info">+12</p>
+        </div>
+        <div class="computer-card">
           <p class="computer-card-whot">WHOT</p>
         </div>
       </div>
-      <div class="display-cards mt-4">
+    </div>
+    <div
+      style="
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-end;
+        grid-column-gap: 2rem;
+      "
+    >
+      <div class="display-cards">
         <div class="display-card">
           <p class="h1 display-card-number">5</p>
           <p class="display-card-shape">SQUARE</p>
         </div>
       </div>
-
       <div class="market-cards">
         <div class="market-card" title="market">
           <p class="market-card-text">MARKET</p>
         </div>
       </div>
-
-      <div class="player-cards mt-4 mx-3">
-        <div class="player-card mx-2">
+    </div>
+    <div class="player-cards-slide-container">
+      <div class="player-cards">
+        <div class="player-card">
           <p class="h1 player-card-number">5</p>
           <p class="player-card-shape">SQUARE</p>
         </div>
       </div>
     </div>
 
+    <script src="main3.js"></script>
     <script src="bootstrap-5.3.0-alpha3-dist/js/bootstrap.bundle.js"></script>
   </body>
 </html>
