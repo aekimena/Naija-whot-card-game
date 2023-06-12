@@ -1,16 +1,37 @@
 body {
-    background-color: green;
-    /* height: 100vh; */
+    /* background: rgb(1, 161, 1); */
+    background-image: url(background-img.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    backdrop-filter: brightness(70%);
+    /* width: 97%;
+    margin: auto; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.computer-cards-slide-container {
+    width: 100%;
+    overflow: hidden;
 }
 
 .computer-cards {
     display: flex;
+    width: 100%;
+    position: relative;
+    grid-column-gap: 1rem;
 }
 
 .computer-card {
+    flex-shrink: 0;
     background-color: brown;
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 130px;
     border: 1px solid #000;
     position: relative;
     cursor: none;
@@ -25,22 +46,41 @@ body {
     font-size: 1.4rem;
 }
 
-.display-cards {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* position: absolute;
+.length-display-card {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120px;
+    height: 130px;
+    background-color: #000;
+    z-index: 4;
+}
+
+.length-display-info {
+    position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); */
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 3rem;
+}
+
+.hide {
+    display: none;
+}
+
+.display-cards {
+    /* display: flex; */
+    /* justify-content: center;
+    align-items: center; */
 }
 
 .display-card {
     position: relative;
     background-color: #fff;
     border: 1px solid brown;
-    width: 190px;
-    height: 190px;
+    width: 120px;
+    height: 130px;
     cursor: none;
 }
 
@@ -61,18 +101,17 @@ body {
 }
 
 .market-cards {
-    position: absolute;
-    top: 50%;
-    left: 85%;
-    transform: translate(-85%, -50%);
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
 }
 
 .market-card {
     position: relative;
     background-color: brown;
     border: 1px solid #000;
-    width: 160px;
-    height: 160px;
+    width: 100px;
+    height: 110px;
     cursor: pointer;
 }
 
@@ -85,18 +124,57 @@ body {
     font-size: 1.4rem;
 }
 
-.player-cards {
+.player-cards-slide-container {
+    width: 100%;
+    /* overflow: hidden; */
+    overflow-x: auto;
+    white-space: nowrap;
+    position: relative;
     bottom: 0;
+    transition: transform 0.5s ease;
+}
+
+.player-cards-slide-container::-webkit-scrollbar {
+    height: 0.7rem;
+}
+
+.player-cards-slide-container::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+.player-cards-slide-container::-webkit-scrollbar-thumb {
+    background: #000;
+    border-radius: 2rem;
+}
+
+.player-cards {
+    white-space: nowrap;
     display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+    grid-column-gap: 1rem;
 }
 
 .player-card {
+    flex-shrink: 0;
     position: relative;
     background-color: #fff;
     border: 1px solid brown;
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 130px;
     cursor: pointer;
+}
+
+.wrong-card {
+    background-color: rgb(255, 0, 0);
+}
+
+.right-card {
+    background-color: rgb(1, 158, 1);
+}
+
+.market {
+    background-color: rgb(255, 255, 0);
 }
 
 .player-card-number {
