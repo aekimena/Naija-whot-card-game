@@ -119,10 +119,16 @@ function startGame(){
     updateShowCards();
     playerTurn();
     goMarket();
+    console.log(whotCards);
 }
 
 function shuffleCards(whotcards){
-    return whotcards.sort(() => Math.random() - 0.5);
+    // return whotcards.sort(() => Math.random() - 0.5);
+    for(let i = whotcards.length - 1; i > 0; i--){
+        const j = Math.floor(Math.random() * (i + 1));
+        [whotcards[i], whotcards[j]] = [whotcards[j], whotcards[i]];
+    }
+    return whotcards;
 }
 
 function shareCards(){
@@ -143,8 +149,12 @@ function shareCards(){
     }
 
     for (let i of whotCards) {
-        showCard.push(i);
-        whotCards.splice(whotCards.indexOf(i), 1)
+        if(i[0] == 2 || i[0] == 1 || i[0] == 14 || i[0] == 20){
+            continue;
+        } else {
+            showCard.push(i);
+            whotCards.splice(whotCards.indexOf(i), 1)
+        }
         if (showCard.length == 1) {
             break;
         }
@@ -207,9 +217,10 @@ function playerTurn(){
                                 playerCardsContainer.splice(cardIndex, 1);
                                 updateShowCards();
                                 updatePlayerCards();
+                                isPlayerTurn = false;
                                 checkWinner();
+                                if (isPlayerTurn == false){
                                 setTimeout(() => {
-                                    if(isPlayerTurn != false){
                                     let _computer2 = new Rules(computerCardsContainer, 'computer-card');
                                     _computer2.pickTwo();
                                     updateComputerCards();
@@ -226,8 +237,8 @@ function playerTurn(){
                                         document.querySelector(`.computer-card:last-of-type`).classList.remove('market');
                                         document.querySelectorAll('.computer-card')[computerCardsContainer.length - 2].classList.remove('market');
                                 }, 500)
-                            }
                                 }, 1000)
+                            }
                                 isPlayerTurn = true;
                                 isComputerTurn = false;
                                 playerTurn();
@@ -245,9 +256,10 @@ function playerTurn(){
                                 playerCardsContainer.splice(cardIndex, 1);
                                 updateShowCards();
                                 updatePlayerCards();
+                                isPlayerTurn = false;
                                 checkWinner();
+                                if(isPlayerTurn == false){
                                 setTimeout(() => {
-                                    if(isPlayerTurn != false){
                                     let _computer14 = new Rules(computerCardsContainer, 'computer-card');
                                     _computer14.goToMarket();
                                     updateComputerCards();
@@ -261,9 +273,8 @@ function playerTurn(){
                                         marketCard.classList.remove('market');
                                         document.querySelector(`.computer-card:last-of-type`).classList.remove('market');
                                 }, 500)
-                            }
                                 }, 1000)
-
+                            }
                                 isPlayerTurn = true;
                                 isComputerTurn = false;
                                 playerTurn();
@@ -281,18 +292,18 @@ function playerTurn(){
                                 playerCardsContainer.splice(cardIndex, 1);
                                 updateShowCards();
                                 updatePlayerCards();
+                                isPlayerTurn = false;
                                 checkWinner();
+                                if(isPlayerTurn == false){
                                 setTimeout(() => {
-                                    if(isPlayerTurn != false){
                                     computerCardsContainer.forEach(item => {
                                         document.querySelectorAll('.computer-card')[computerCardsContainer.indexOf(item)].classList.add('wrong-card');
                                     setTimeout(() => {
                                         document.querySelectorAll('.computer-card')[computerCardsContainer.indexOf(item)].classList.remove('wrong-card');
                                     }, 500)
                                 })
-                            }
                                 }, 1000)
-
+                            }
                                 isPlayerTurn = true;
                                 isComputerTurn = false;
                                 playerTurn();
@@ -347,11 +358,12 @@ function computerTurn(){
                         computerCardsContainer.splice(computerCardsContainer.indexOf(i), 1);
                         updateShowCards();
                         updateComputerCards();
+                        isComputerTurn = false;
                         checkWinner();
-                        isComputerTurn = true;
+                        // isComputerTurn = true;
                         trash.splice(0, trash.length);
                         setTimeout(() => {
-                            if(isComputerTurn != false){
+                            if(isComputerTurn != true){
                             let _player2 = new Rules(playerCardsContainer, 'player-card');
                             _player2.pickTwo();
                             updatePlayerCards();
@@ -385,11 +397,12 @@ function computerTurn(){
                         computerCardsContainer.splice(computerCardsContainer.indexOf(i), 1);
                         updateShowCards();
                         updateComputerCards();
+                        isComputerTurn = false;
                         checkWinner();
-                        isComputerTurn = true;
+                        // isComputerTurn = true;
                         trash.splice(0, trash.length);
                         setTimeout(() => {
-                            if(isComputerTurn != false){
+                            if(isComputerTurn != true){
                             let _player14 = new Rules(playerCardsContainer, 'player-card');
                             _player14.goToMarket();
                             updatePlayerCards();
@@ -421,11 +434,12 @@ function computerTurn(){
                         computerCardsContainer.splice(computerCardsContainer.indexOf(i), 1);
                         updateShowCards();
                         updateComputerCards();
+                        isComputerTurn = false;
                         checkWinner();
-                        isComputerTurn = true;
+                        // isComputerTurn = true;
                         trash.splice(0, trash.length);
                         setTimeout(() => {
-                            if(isComputerTurn != false){
+                            if(isComputerTurn != true){
                             playerCardsContainer.forEach(item => {
                                 allPlayerCards[playerCardsContainer.indexOf(item)].classList.add('wrong-card');
                             })
@@ -521,15 +535,6 @@ function checkWinner(){
         showWinner(playerWinInfo);
         isPlayerTurn = true;
     }
-}
-
-function emptyCardsCheck(){
-    if(whotCards.length == 0){
-        whotCards = whotCards.concat(backupCards);
-        backupCards.splice(0, backupCards.length);
-        console.log(whotCards);
-    }
-    console.log(playerCardsContainer.length, computerCardsContainer.length, whotCards.length, backupCards.length)
 }
 
 class Rules{
