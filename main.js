@@ -53,7 +53,7 @@ function showWinner(info){
         document.querySelector('.display-cards').style.display = 'block';
         whotCards = whotCards.concat(playerCardsContainer);
         whotCards = whotCards.concat(computerCardsContainer);
-        whotCards = whotCards.concat(showCard);
+//        whotCards = whotCards.concat(showCard);
         showCard.splice(0, showCard.length);
         computerCardsContainer.splice(0, computerCardsContainer.length);
         playerCardsContainer.splice(0, playerCardsContainer.length);
@@ -79,7 +79,7 @@ document.querySelector('.menu-btn').addEventListener('click', () => {
         document.querySelector('.display-cards').style.display = 'block';
         whotCards = whotCards.concat(playerCardsContainer);
         whotCards = whotCards.concat(computerCardsContainer);
-        whotCards = whotCards.concat(showCard);
+//        whotCards = whotCards.concat(showCard);
         showCard.splice(0, showCard.length);
         computerCardsContainer.splice(0, computerCardsContainer.length);
         playerCardsContainer.splice(0, playerCardsContainer.length);
